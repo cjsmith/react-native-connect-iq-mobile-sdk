@@ -1,0 +1,24 @@
+
+---
+Error: Unexpected Type Error
+Details: 'Failed invoking <symbol>'
+Time: 2023-10-18T07:22:08Z
+Part-Number: 006-B3291-00
+Firmware-Version: '26.00'
+Language-Code: eng
+ConnectIQ-Version: 4.2.2
+Filename: ReactNativeCIQMobileSDKDemo
+Appname: ReactNativeCIQMobileSDKDemo
+Stack: 
+  - pc: 0x100000fc
+    File: '/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc'
+    Line: 32
+    Function: phoneMessageCallback
+  - pc: 0x1000007c
+    File: '/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc'
+    Line: 41
+    Function: initialize
+  - pc: 0x10000153
+    File: '/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc'
+    Line: 21
+    Function: getInitialView
