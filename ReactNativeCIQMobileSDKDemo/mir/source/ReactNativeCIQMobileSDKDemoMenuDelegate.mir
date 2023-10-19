@@ -1,0 +1,66 @@
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 2; ]
+import Toybox.System;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 3; ]
+import Toybox.WatchUi;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 5; ]
+class ReactNativeCIQMobileSDKDemoMenuDelegate extends WatchUi.MenuInputDelegate{
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 7; ]
+    function initialize() as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_7_26_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" 8 8 ]
+        %tmp.2 = getv ? :MenuInputDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_7_26_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 11; ]
+    function onMenuItem(item as Symbol) as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_11_48_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" 12 8 ]
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_8_if_stmt:
+        %tmp.2 = lgetv %item;
+        %tmp.4 = const :item_1;
+        %tmp.5 = eq %tmp.2 %tmp.4;
+        bf %tmp.5 @_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_8_if_false;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_8_if_true:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_29_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" 13 12 ]
+        %tmp.6 = getm $.Toybox.System;
+        %tmp.7 = getv function %tmp.6 :println;
+        %tmp.8 = "item 1";
+        invoke %tmp.6 %tmp.7(%tmp.8);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_29_stop:
+        goto @_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_8_if_end;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_8_if_false:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" 14 15 ]
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_15_if_stmt:
+        %tmp.10 = lgetv %item;
+        %tmp.12 = const :item_2;
+        %tmp.13 = eq %tmp.10 %tmp.12;
+        bf %tmp.13 @_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_15_if_end;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_15_if_true:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_36_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" 15 12 ]
+        %tmp.14 = getm $.Toybox.System;
+        %tmp.15 = getv function %tmp.14 :println;
+        %tmp.16 = "item 2";
+        invoke %tmp.14 %tmp.15(%tmp.16);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_36_stop:
+        goto @_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_15_if_end;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_14_15_if_end:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_12_8_if_end:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoMenuDelegate_mc_11_48_stop:
+    }
+}
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc"; @line = 1; ]
+<init> {
+}

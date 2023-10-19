@@ -1,18 +1,18 @@
 #import "ConnectIqMobileSdk.h"
+#import <ConnectIQ/ConnectIQ.h>
 
 @implementation ConnectIqMobileSdk
 RCT_EXPORT_MODULE()
 
 // Example method
 // See // https://reactnative.dev/docs/native-modules-ios
-RCT_EXPORT_METHOD(multiply:(double)a
-                  b:(double)b
+RCT_EXPORT_METHOD(init:(NSString *) appId
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    NSNumber *result = @(a * b);
-
-    resolve(result);
+    [[ConnectIQ sharedInstance] initializeWithUrlScheme:@"abcd" uiOverrideDelegate:nil];
+ 
+    //resolve(result);
 }
 
 

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<manifest filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/manifest.xml"/>
+<pcToLineNum>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="1" lineNum="6" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435460" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="3" lineNum="45" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435479" symbol="onLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="3" lineNum="46" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435481" symbol="onLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="4" lineNum="35" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435523" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="4" lineNum="36" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435527" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="4" lineNum="37" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435545" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="4" lineNum="41" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435563" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="6" lineNum="21" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435582" symbol="onTransmitComplete"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="6" lineNum="22" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435584" symbol="onTransmitComplete"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="6" lineNum="23" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435589" symbol="onTransmitComplete"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="6" lineNum="25" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435615" symbol="onTransmitComplete"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="7" lineNum="29" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435639" symbol="phoneMessageCallback"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="7" lineNum="30" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435643" symbol="phoneMessageCallback"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="7" lineNum="31" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435675" symbol="phoneMessageCallback"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="7" lineNum="32" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435682" symbol="phoneMessageCallback"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="8" lineNum="56" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435724" symbol="onUpdate"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="8" lineNum="58" parent="globals/ReactNativeCIQMobileSDKDemoView" pc="268435726" symbol="onUpdate"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="9" lineNum="5" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435747" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="10" lineNum="12" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435766" symbol="onStart"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="11" lineNum="20" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435769" symbol="getInitialView"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="11" lineNum="21" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435771" symbol="getInitialView"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="12" lineNum="7" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435846" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="12" lineNum="8" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435848" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="13" lineNum="16" parent="globals/ReactNativeCIQMobileSDKDemoApp" pc="268435867" symbol="onStop"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="14" lineNum="8" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435870" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="15" lineNum="16" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435889" symbol="onError"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="15" lineNum="17" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435891" symbol="onError"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="16" lineNum="12" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435915" symbol="onComplete"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="16" lineNum="13" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435917" symbol="onComplete"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="17" lineNum="9" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435941" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" id="17" lineNum="10" parent="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" pc="268435943" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="18" lineNum="26" parent="globals" pc="268435966" symbol="getApp"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" id="18" lineNum="27" parent="globals" pc="268435976" symbol="getApp"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="19" lineNum="7" parent="globals/Rez" pc="268435992" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoDelegate.mc" id="20" lineNum="4" parent="globals/ReactNativeCIQMobileSDKDemoDelegate" pc="268436016" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoDelegate.mc" id="21" lineNum="10" parent="globals/ReactNativeCIQMobileSDKDemoDelegate" pc="268436035" symbol="onMenu"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoDelegate.mc" id="21" lineNum="11" parent="globals/ReactNativeCIQMobileSDKDemoDelegate" pc="268436037" symbol="onMenu"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoDelegate.mc" id="21" lineNum="12" parent="globals/ReactNativeCIQMobileSDKDemoDelegate" pc="268436122" symbol="onMenu"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoDelegate.mc" id="22" lineNum="6" parent="globals/ReactNativeCIQMobileSDKDemoDelegate" pc="268436125" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoDelegate.mc" id="22" lineNum="7" parent="globals/ReactNativeCIQMobileSDKDemoDelegate" pc="268436127" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="23" lineNum="5" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436146" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="24" lineNum="11" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436165" symbol="onMenuItem"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="24" lineNum="12" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436167" symbol="onMenuItem"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="24" lineNum="13" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436178" symbol="onMenuItem"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="24" lineNum="14" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436202" symbol="onMenuItem"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="24" lineNum="15" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436213" symbol="onMenuItem"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="25" lineNum="7" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436238" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoMenuDelegate.mc" id="25" lineNum="8" parent="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" pc="268436240" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="26" lineNum="20" parent="globals/Rez/Layouts" pc="268436259" symbol="MainLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="26" lineNum="21" parent="globals/Rez/Layouts" pc="268436271" symbol="MainLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="26" lineNum="23" parent="globals/Rez/Layouts" pc="268436402" symbol="MainLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="26" lineNum="24" parent="globals/Rez/Layouts" pc="268436507" symbol="MainLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="26" lineNum="26" parent="globals/Rez/Layouts" pc="268436547" symbol="MainLayout"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="27" lineNum="31" parent="globals/Rez/Menus/MainMenu" pc="268436574" symbol="&lt;init&gt;"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="28" lineNum="32" parent="globals/Rez/Menus/MainMenu" pc="268436593" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="28" lineNum="33" parent="globals/Rez/Menus/MainMenu" pc="268436595" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="28" lineNum="34" parent="globals/Rez/Menus/MainMenu" pc="268436613" symbol="initialize"/>
+<entry filename="/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/gen/006-B3291-00/source/Rez.mcgen" id="28" lineNum="35" parent="globals/Rez/Menus/MainMenu" pc="268436669" symbol="initialize"/>
+</pcToLineNum>
+<symbolTable>
+<entry id="8388639" module="true" symbol="Graphics"/>
+<entry id="10" object="true" symbol="ReactNativeCIQMobileSDKDemoDelegate"/>
+<entry id="8389346" symbol="text"/>
+<entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+<entry id="7" module="true" symbol="globals/Rez/Menus"/>
+<entry id="19" method="true" symbol="MainLayout"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry id="13" object="true" symbol="ConnectionListenerImpl"/>
+<entry id="8390063" method="true" symbol="onTransmitComplete"/>
+<entry field="true" id="21" symbol="AppName"/>
+<entry id="8" module="true" symbol="globals/Rez/Strings"/>
+<entry id="8389080" method="true" symbol="onMenu"/>
+<entry id="8388772" module="true" object="true" symbol="Fonts"/>
+<entry id="8389345" symbol="rezId"/>
+<entry id="8388648" module="true" symbol="WatchUi"/>
+<entry id="2" module="true" symbol="globals/Rez"/>
+<entry field="true" id="24" symbol="prompt"/>
+<entry field="true" id="18" symbol="id_monkey"/>
+<entry id="12" object="true" symbol="ReactNativeCIQMobileSDKDemoView"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry field="true" id="8389065" symbol="locY"/>
+<entry field="true" id="8389064" symbol="locX"/>
+<entry id="8388771" module="true" object="true" symbol="Drawables"/>
+<entry id="14" method="true" symbol="phoneMessageCallback"/>
+<entry id="8389348" symbol="font"/>
+<entry id="26" symbol="item_2"/>
+<entry id="25" symbol="item_1"/>
+<entry id="16" module="true" symbol="Menus"/>
+<entry id="8389275" method="true" symbol="getApp"/>
+<entry id="6" module="true" symbol="globals/Rez/Layouts"/>
+<entry id="8389122" method="true" symbol="onLayout"/>
+<entry field="true" id="8389063" symbol="identifier"/>
+<entry id="8389349" symbol="justification"/>
+<entry id="9" object="true" symbol="ReactNativeCIQMobileSDKDemoApp"/>
+<entry id="5" module="true" symbol="globals/Rez/JsonData"/>
+<entry id="8388637" module="true" symbol="Communications"/>
+<entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+<entry id="8388828" method="true" symbol="onError"/>
+<entry id="20" object="true" symbol="MainMenu"/>
+<entry id="8388644" module="true" symbol="System"/>
+<entry id="8388769" module="true" object="true" symbol="Rez"/>
+<entry id="8388640" module="true" symbol="Lang"/>
+<entry id="8390088" module="true" object="true" symbol="JsonData"/>
+<entry field="true" id="17" symbol="LauncherIcon"/>
+<entry id="8388610" symbol="statics"/>
+<entry id="8389123" method="true" symbol="onShow"/>
+<entry id="8389350" module="true" symbol="globals"/>
+<entry id="8388770" module="true" object="true" symbol="Strings"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry id="8389109" method="true" symbol="onMenuItem"/>
+<entry id="8389347" symbol="color"/>
+<entry id="8388829" method="true" symbol="onComplete"/>
+<entry id="11" object="true" symbol="ReactNativeCIQMobileSDKDemoMenuDelegate"/>
+<entry id="15" module="true" symbol="Layouts"/>
+<entry id="4" module="true" symbol="globals/Rez/Fonts"/>
+<entry id="8389125" method="true" symbol="onHide"/>
+<entry id="8388635" module="true" symbol="Application"/>
+<entry field="true" id="23" symbol="menu_label_2"/>
+<entry field="true" id="22" symbol="menu_label_1"/>
+</symbolTable>
+<localVars>
+<entry arg="true" endPc="268435522" name="dc" stackId="1" startPc="268435479"/>
+<entry endPc="268435580" name="phoneCallback" stackId="1" startPc="268435527"/>
+<entry arg="true" endPc="268435638" name="isSuccess" stackId="1" startPc="268435582"/>
+<entry arg="true" endPc="268435723" name="msg" stackId="1" startPc="268435639"/>
+<entry endPc="268435722" name="message" stackId="2" startPc="268435643"/>
+<entry arg="true" endPc="268435746" name="dc" stackId="1" startPc="268435724"/>
+<entry arg="true" endPc="268436237" name="item" stackId="1" startPc="268436165"/>
+<entry arg="true" endPc="268436573" name="dc" stackId="1" startPc="268436259"/>
+<entry endPc="268436573" name="rez_cmp_local_text_1587223659" stackId="2" startPc="268436271"/>
+<entry endPc="268436573" name="rez_cmp_local_bitmap_id_monkey" stackId="3" startPc="268436271"/>
+</localVars>
+<annotations>
+<annotationEntry annotation="background" class="ConnectionListenerImpl" module="globals/ReactNativeCIQMobileSDKDemoView" symbol="onComplete"/>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="onHide"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoApp" module="globals" symbol="onStart"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="phoneMessageCallback"/>
+<annotationEntry annotation="background" class="ConnectionListenerImpl" module="globals/ReactNativeCIQMobileSDKDemoView" symbol="initialize"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoApp" module="globals" symbol="getInitialView"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoApp" module="globals" symbol="onStop"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_2"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="ConnectionListenerImpl"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="onLayout"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="onTransmitComplete"/>
+<annotationEntry annotation="background" class="ConnectionListenerImpl" module="globals/ReactNativeCIQMobileSDKDemoView" symbol="onError"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_1"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="prompt"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoApp" module="globals" symbol="initialize"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="onShow"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="onUpdate"/>
+<annotationEntry annotation="background" class="ReactNativeCIQMobileSDKDemoView" module="globals" symbol="initialize"/>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="id_monkey"/>
+</annotations>
+<dataEntryOffsetMappings>
+<dataEntry label="globals" offset="87" parentId="" symbolId="globals" type="module"/>
+<dataEntry label="globals/ReactNativeCIQMobileSDKDemoView" offset="174" parentId="globals" symbolId="ReactNativeCIQMobileSDKDemoView" type="class"/>
+<dataEntry label="globals/ReactNativeCIQMobileSDKDemoApp" offset="277" parentId="globals" symbolId="ReactNativeCIQMobileSDKDemoApp" type="class"/>
+<dataEntry label="globals/ReactNativeCIQMobileSDKDemoView/ConnectionListenerImpl" offset="348" parentId="ReactNativeCIQMobileSDKDemoView" symbolId="ConnectionListenerImpl" type="class"/>
+<dataEntry label="globals/Rez" offset="995" parentId="globals" symbolId="Rez" type="module"/>
+<dataEntry label="globals/ReactNativeCIQMobileSDKDemoDelegate" offset="1074" parentId="globals" symbolId="ReactNativeCIQMobileSDKDemoDelegate" type="class"/>
+<dataEntry label="globals/ReactNativeCIQMobileSDKDemoMenuDelegate" offset="1129" parentId="globals" symbolId="ReactNativeCIQMobileSDKDemoMenuDelegate" type="class"/>
+<dataEntry label="globals/Rez/Drawables" offset="1184" parentId="Rez" symbolId="Drawables" type="module"/>
+<dataEntry label="globals/Rez/Layouts" offset="1231" parentId="Rez" symbolId="Layouts" type="module"/>
+<dataEntry label="globals/Rez/Menus" offset="1270" parentId="Rez" symbolId="Menus" type="module"/>
+<dataEntry label="globals/Rez/Fonts" offset="1309" parentId="Rez" symbolId="Fonts" type="module"/>
+<dataEntry label="globals/Rez/Strings" offset="1340" parentId="Rez" symbolId="Strings" type="module"/>
+<dataEntry label="globals/Rez/JsonData" offset="1403" parentId="Rez" symbolId="JsonData" type="module"/>
+<dataEntry label="globals/Rez/Menus/MainMenu" offset="1434" parentId="Menus" symbolId="MainMenu" type="class"/>
+</dataEntryOffsetMappings>
+<functions>
+<functionEntry accessMode="public" endPc="268435478" name="&lt;init&gt;" parent="ReactNativeCIQMobileSDKDemoView" startPc="268435460">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onShow" parent="ReactNativeCIQMobileSDKDemoView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435522" name="onLayout" parent="ReactNativeCIQMobileSDKDemoView" startPc="268435479">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435581" name="initialize" parent="ReactNativeCIQMobileSDKDemoView" startPc="268435523">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onHide" parent="ReactNativeCIQMobileSDKDemoView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435638" name="onTransmitComplete" parent="ReactNativeCIQMobileSDKDemoView" startPc="268435582">
+<param id="isSuccess"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435723" name="phoneMessageCallback" parent="ReactNativeCIQMobileSDKDemoView" startPc="268435639">
+<param id="msg"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435746" name="onUpdate" parent="ReactNativeCIQMobileSDKDemoView" startPc="268435724">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435765" name="&lt;init&gt;" parent="ReactNativeCIQMobileSDKDemoApp" startPc="268435747">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435768" name="onStart" parent="ReactNativeCIQMobileSDKDemoApp" startPc="268435766">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435845" name="getInitialView" parent="ReactNativeCIQMobileSDKDemoApp" startPc="268435769">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435866" name="initialize" parent="ReactNativeCIQMobileSDKDemoApp" startPc="268435846">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435869" name="onStop" parent="ReactNativeCIQMobileSDKDemoApp" startPc="268435867">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435888" name="&lt;init&gt;" parent="ConnectionListenerImpl" startPc="268435870">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435914" name="onError" parent="ConnectionListenerImpl" startPc="268435889">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435940" name="onComplete" parent="ConnectionListenerImpl" startPc="268435915">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435965" name="initialize" parent="ConnectionListenerImpl" startPc="268435941">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435991" name="getApp" startPc="268435966">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436015" name="&lt;init&gt;" parent="Rez" startPc="268435992">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436034" name="&lt;init&gt;" parent="ReactNativeCIQMobileSDKDemoDelegate" startPc="268436016">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436124" name="onMenu" parent="ReactNativeCIQMobileSDKDemoDelegate" startPc="268436035">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436145" name="initialize" parent="ReactNativeCIQMobileSDKDemoDelegate" startPc="268436125">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436164" name="&lt;init&gt;" parent="ReactNativeCIQMobileSDKDemoMenuDelegate" startPc="268436146">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436237" name="onMenuItem" parent="ReactNativeCIQMobileSDKDemoMenuDelegate" startPc="268436165">
+<param id="item"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436258" name="initialize" parent="ReactNativeCIQMobileSDKDemoMenuDelegate" startPc="268436238">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Fonts">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="JsonData">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436573" name="MainLayout" parent="Layouts" startPc="268436259">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436592" name="&lt;init&gt;" parent="MainMenu" startPc="268436574">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436725" name="initialize" parent="MainMenu" startPc="268436593">
+<documentation/>
+</functionEntry>
+</functions>
+</debugInfo>

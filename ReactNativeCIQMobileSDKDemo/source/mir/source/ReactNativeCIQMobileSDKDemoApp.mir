@@ -1,0 +1,61 @@
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 2; ]
+import Toybox.Lang;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 3; ]
+import Toybox.WatchUi;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 5; ]
+class ReactNativeCIQMobileSDKDemoApp extends Application.AppBase{
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 7; ]
+    function initialize() as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoApp_mc_7_26_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" 8 8 ]
+        %tmp.2 = getv ? :AppBase;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoApp_mc_7_26_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 12; ]
+    function onStart(state as Dictionary or Null) as Void {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 16; ]
+    function onStop(state as Dictionary or Null) as Void {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 20; ]
+    function getInitialView() as Array<Views or InputDelegates> or Null {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoApp_mc_20_65_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" 21 8 ]
+        %tmp.1 = newa Array<Views or InputDelegates> 2;
+        %tmp.5 = getv ? :ReactNativeCIQMobileSDKDemoView;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        %tmp.11 = getv ? :ReactNativeCIQMobileSDKDemoDelegate;
+        %tmp.8 = newc %tmp.11 ();
+        %tmp.12 = dup %tmp.7;
+        %tmp.13 = aputv %tmp.12 1 %tmp.8;
+        ret %tmp.13;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoApp_mc_20_65_stop:
+    }
+}
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 26; ]
+function getApp() as ReactNativeCIQMobileSDKDemoApp {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoApp_mc_26_52_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc" 27 4 ]
+    %tmp.1 = getm $.Toybox.Application;
+    %tmp.2 = getv function %tmp.1 :getApp;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    %tmp.4 = as %tmp.3 ReactNativeCIQMobileSDKDemoApp;
+    ret %tmp.4;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoApp_mc_26_52_stop:
+}
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoApp.mc"; @line = 1; ]
+<init> {
+}

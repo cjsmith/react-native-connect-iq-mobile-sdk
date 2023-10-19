@@ -1,0 +1,170 @@
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 1; ]
+import Toybox.Graphics;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 3; ]
+import Toybox.Communications;
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 6; ]
+class ReactNativeCIQMobileSDKDemoView extends WatchUi.View{
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 7; background = true; ]
+    class ConnectionListenerImpl extends Communications.ConnectionListener{
+        [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 8; ]
+        <init> {
+        }
+        [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 8; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 9; ]
+        function initialize() as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_9_30_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 10 12 ]
+            %tmp.1 = getm $.Toybox.Communications;
+            %tmp.2 = getv %tmp.1 :ConnectionListener;
+            %tmp.3 = getv function %tmp.2 :initialize;
+            invoke %tmp.2 %tmp.3();
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_9_30_stop:
+        }
+        [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 12; ]
+        function onComplete() {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_12_30_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 13 12 ]
+            %tmp.2 = getv ? :System;
+            %tmp.3 = getv function %tmp.2 :println;
+            %tmp.4 = "Transmit Complete";
+            invoke %tmp.2 %tmp.3(%tmp.4);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_12_30_stop:
+        }
+        [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 16; ]
+        function onError() {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_16_27_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 17 12 ]
+            %tmp.2 = getv ? :System;
+            %tmp.3 = getv function %tmp.2 :println;
+            %tmp.4 = "Transmit Failed";
+            invoke %tmp.2 %tmp.3(%tmp.4);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_16_27_stop:
+        }
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 21; ]
+    function onTransmitComplete(isSuccess) {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_21_43_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 22 8 ]
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_8_if_stmt:
+        %tmp.2 = lgetv %isSuccess;
+        bf %tmp.2 @_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_8_if_false;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_8_if_true:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_23_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 23 12 ]
+        %tmp.4 = getv ? :System;
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = "Message sent successfully.";
+        invoke %tmp.4 %tmp.5(%tmp.6);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_23_stop:
+        goto @_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_8_if_end;
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_8_if_false:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_24_15_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 25 12 ]
+        %tmp.8 = getv ? :System;
+        %tmp.9 = getv function %tmp.8 :println;
+        %tmp.10 = "Message failed to send.";
+        invoke %tmp.8 %tmp.9(%tmp.10);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_24_15_stop:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_22_8_if_end:
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_21_43_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 29; ]
+    function phoneMessageCallback(msg as Communications.PhoneAppMessage) {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_29_73_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 30 8 ]
+        %tmp.2 = getv ? :System;
+        %tmp.3 = getv function %tmp.2 :println;
+        %tmp.4 = "Received message ";
+        %tmp.5 = lgetv %msg;
+        %tmp.6 = getv %tmp.5 :data;
+        %tmp.7 = add %tmp.4 %tmp.6;
+        invoke %tmp.2 %tmp.3(%tmp.7);
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 31 8 ]
+        [ "_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_29_73_start" "_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_29_73_stop" ]
+        %message.1 = local;
+        %tmp.8 = "received ";
+        %tmp.9 = lgetv %msg;
+        %tmp.10 = getv %tmp.9 :data;
+        %tmp.11 = add %tmp.8 %tmp.10;
+        %tmp.12 = "; hello from Connect IQ";
+        %tmp.13 = add %tmp.11 %tmp.12;
+        lputv %message.1 %tmp.13;
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 32 8 ]
+        %tmp.14 = getm $.Toybox.Communications;
+        %tmp.15 = getv function %tmp.14 :transmit;
+        %tmp.17 = lgetv %message.1;
+        %tmp.18 = null;
+        %tmp.22 = getv ? :ConnectionListenerImpl;
+        %tmp.19 = newc %tmp.22 ();
+        invoke %tmp.14 %tmp.15(%tmp.17, %tmp.18, %tmp.19);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_29_73_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 35; ]
+    function initialize() as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_35_26_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 36 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 37 8 ]
+        [ "_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_35_26_start" "_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_35_26_stop" ]
+        %phoneCallback.1 = local;
+        %tmp.4 = self;
+        %tmp.5 = getv function %tmp.4 :method;
+        %tmp.7 = const :phoneMessageCallback;
+        %tmp.8 = invoke %tmp.4 %tmp.5(%tmp.7);
+        %tmp.9 = as %tmp.8 Communications.PhoneMessageCallback;
+        lputv %phoneCallback.1 %tmp.9;
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 41 8 ]
+        %tmp.10 = getm $.Toybox.Communications;
+        %tmp.11 = getv function %tmp.10 :registerForPhoneAppMessages;
+        %tmp.13 = lgetv %phoneCallback.1;
+        invoke %tmp.10 %tmp.11(%tmp.13);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_35_26_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 45; ]
+    function onLayout(dc as Dc) as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_45_40_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 46 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        %tmp.4 = getv ? :Rez;
+        %tmp.5 = getv %tmp.4 :Layouts;
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.8 = lgetv %dc;
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        invoke %tmp.1 %tmp.2(%tmp.9);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_45_40_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 52; ]
+    function onShow() as Void {
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 56; ]
+    function onUpdate(dc as Dc) as Void {
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_56_40_start:
+[ "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc" 58 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :onUpdate;
+        %tmp.5 = lgetv %dc;
+        invoke %tmp.2 %tmp.3(%tmp.5);
+_Users_csmith_Workspace_react_native_connect_iq_mobile_sdk_ReactNativeCIQMobileSDKDemo_source_ReactNativeCIQMobileSDKDemoView_mc_56_40_stop:
+    }
+    [ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 64; ]
+    function onHide() as Void {
+    }
+}
+[ @file = "/Users/csmith/Workspace/react-native-connect-iq-mobile-sdk/ReactNativeCIQMobileSDKDemo/source/ReactNativeCIQMobileSDKDemoView.mc"; @line = 1; ]
+<init> {
+}
