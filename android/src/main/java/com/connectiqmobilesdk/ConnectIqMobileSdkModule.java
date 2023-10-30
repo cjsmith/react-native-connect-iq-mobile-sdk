@@ -43,6 +43,7 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   private IQDevice mDevice;
   private IQApp mMyApp;
 
+  private String mStoreId;
   private Promise messageStatusPromise;
 
   public ConnectIqMobileSdkModule(ReactApplicationContext reactContext) {
@@ -55,13 +56,31 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
     return NAME;
   }
 
+  private int listenerCount = 0;
+
+  @ReactMethod
+  public void addListener(String eventName) {
+    if (listenerCount == 0) {
+      // Set up any upstream listeners or background tasks as necessary
+    }
+    listenerCount += 1;
+  }
+
+  @ReactMethod
+  public void removeListeners(Integer count) {
+    listenerCount -= count;
+    if (listenerCount == 0) {
+      // Remove upstream listeners, stop unnecessary background tasks
+    }
+  }
 
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
-  public void init(String appId, Promise promise) {
+  public void init(String appId, String storeId, String urlScheme/*only used on iOS*/, Promise promise) {
     System.out.println("Calling init with " + appId);
     mMyApp = new IQApp(appId);
+    mStoreId = storeId;
     Context context = this.getCurrentActivity().getWindow().getContext();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
       if (context.isUiContext()) {
@@ -186,9 +205,9 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   }
 
   @ReactMethod
-  public void openStore(String storeId, Promise promise) {
+  public void openStore(Promise promise) {
     try {
-      mConnectIQ.openStore(storeId);
+      mConnectIQ.openStore(mStoreId);
       promise.resolve(null);
     } catch (Exception e) {
       promise.reject(e);

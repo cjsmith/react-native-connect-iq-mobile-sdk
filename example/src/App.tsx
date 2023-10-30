@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, Button, TextInput, ScrollView } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, Button, TextInput, ScrollView } from 'react-native';
 import {
   init,
   getConnectedDevices,
@@ -14,9 +14,10 @@ import {
   addDeviceStatusChangedListener,
   type CIQDeviceStatusChangedEvent,
   openStore,
-} from "react-native-connect-iq-mobile-sdk";
+} from 'react-native-connect-iq-mobile-sdk';
 
-const APP_ID = "c815f36d-d28a-464f-bc23-12190792a2be";
+const APP_ID = 'c815f36d-d28a-464f-bc23-12190792a2be';
+const URL_SCHEME = 'ciqsdkexample-12345';
 
 export default function App() {
   const [initResult, setInitResult] = useState<string | undefined>();
@@ -35,17 +36,20 @@ export default function App() {
   >();
   const [openStoreResult, setOpenStoreResult] = useState<string | undefined>();
   const [devices, setDevices] = useState<CIQDevice[]>([]);
-  const [deviceId, setDeviceId] = useState<string>("");
-  const [storeId, setStoreId] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-  const [receivedMessage, setReceivedMessage] = useState<string>("");
-  const [deviceStatus, setDeviceStatus] = useState<string>("");
+  const [deviceId, setDeviceId] = useState<string>('');
+  const [storeId, setStoreId] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+  const [receivedMessage, setReceivedMessage] = useState<string>('');
+  const [deviceStatus, setDeviceStatus] = useState<string>('');
 
   const callInit = () => {
-    setInitResult("");
-    init(APP_ID)
+    setInitResult('');
+    init({
+      appId: APP_ID,
+      urlScheme: URL_SCHEME,
+    })
       .then(() => {
-        setInitResult("initialized");
+        setInitResult('initialized');
       })
       .catch((e) => {
         setInitResult(`failed: ${e}`);
@@ -53,11 +57,11 @@ export default function App() {
   };
 
   const callGetConnectedDevices = () => {
-    setGetConnectedDevicesResult("");
+    setGetConnectedDevicesResult('');
     getConnectedDevices()
       .then((connectedDevices: CIQDevice[]) => {
         setGetConnectedDevicesResult(
-          `got connected devices: ${JSON.stringify(connectedDevices)}`,
+          `got connected devices: ${JSON.stringify(connectedDevices)}`
         );
         setDevices(connectedDevices);
       })
@@ -67,11 +71,11 @@ export default function App() {
   };
 
   const callGetKnownDevices = () => {
-    setGetKnownDevicesResult("");
+    setGetKnownDevicesResult('');
     getKnownDevices()
       .then((knownDevices: CIQDevice[]) => {
         setGetKnownDevicesResult(
-          `got known devices: ${JSON.stringify(knownDevices)}`,
+          `got known devices: ${JSON.stringify(knownDevices)}`
         );
         setDevices(knownDevices);
       })
@@ -81,11 +85,11 @@ export default function App() {
   };
 
   const callGetApplicationInfo = () => {
-    setGetApplicationInfoResult("");
+    setGetApplicationInfoResult('');
     getApplicationInfo(APP_ID)
       .then((applicationInfo: CIQAppInfo) => {
         setGetApplicationInfoResult(
-          `got app info: ${JSON.stringify(applicationInfo)}`,
+          `got app info: ${JSON.stringify(applicationInfo)}`
         );
       })
       .catch((e: any) => {
@@ -94,10 +98,10 @@ export default function App() {
   };
 
   const callOpenStore = () => {
-    setOpenStoreResult("");
+    setOpenStoreResult('');
     openStore(APP_ID)
       .then(() => {
-        setOpenStoreResult("open store succeeded");
+        setOpenStoreResult('open store succeeded');
       })
       .catch((e: any) => {
         setOpenStoreResult(`failed: ${e}`);
@@ -106,7 +110,7 @@ export default function App() {
 
   const callSetDevice = (deviceId: string) => {
     setDeviceId(deviceId);
-    setSetDeviceResult("");
+    setSetDeviceResult('');
     setDevice(deviceId)
       .then(() => {
         setSetDeviceResult(`set device succeeded`);
@@ -117,11 +121,11 @@ export default function App() {
   };
 
   const callSendMessage = () => {
-    setSendMessageResult("");
+    setSendMessageResult('');
     sendMessage(message)
       .then(() => {
         setSendMessageResult(`send message succeeded`);
-        setMessage("");
+        setMessage('');
       })
       .catch((e: any) => {
         setSendMessageResult(`failed: ${e}`);
@@ -136,7 +140,7 @@ export default function App() {
     addDeviceStatusChangedListener(
       (deviceStatus: CIQDeviceStatusChangedEvent) => {
         setDeviceStatus(JSON.stringify(deviceStatus));
-      },
+      }
     );
   }, []);
 
@@ -168,14 +172,18 @@ export default function App() {
       {setDeviceResult ? <Text>Result: {setDeviceResult}</Text> : null}
       <Button
         title="Call Get Application Info"
-        disabled={!Boolean(deviceId)}
+        disabled={!deviceId}
         onPress={callGetApplicationInfo}
       />
       {getApplicationInfoResult ? (
         <Text>Result: {getApplicationInfoResult}</Text>
       ) : null}
       <Text>Message</Text>
-      <TextInput style={styles.textInput} value={message} onChangeText={setMessage} />
+      <TextInput
+        style={styles.textInput}
+        value={message}
+        onChangeText={setMessage}
+      />
       <Button title="Send Message" onPress={callSendMessage} />
       {sendMessageResult ? <Text>Result: {sendMessageResult}</Text> : null}
       <Text>Message Received:</Text>
@@ -183,7 +191,11 @@ export default function App() {
       <Text>Device Status:</Text>
       <Text>{deviceStatus}</Text>
       <Text>Store Id</Text>
-      <TextInput style={styles.textInput} value={storeId} onChangeText={setStoreId} />
+      <TextInput
+        style={styles.textInput}
+        value={storeId}
+        onChangeText={setStoreId}
+      />
       <Button title="Open Store" onPress={callOpenStore} />
       {openStoreResult ? <Text>Result: {openStoreResult}</Text> : null}
     </ScrollView>
@@ -193,8 +205,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   box: {
     width: 60,
@@ -204,6 +216,6 @@ const styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: 'black',
-    width: 300
-  }
+    width: 300,
+  },
 });
