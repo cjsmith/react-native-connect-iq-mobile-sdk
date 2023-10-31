@@ -42,7 +42,6 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   private ConnectIQ mConnectIQ;
   private IQDevice mDevice;
   private IQApp mMyApp;
-
   private String mStoreId;
   private Promise messageStatusPromise;
 
@@ -77,10 +76,16 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
+<<<<<<< HEAD
   public void init(String appId, String storeId, String urlScheme/*only used on iOS*/, Promise promise) {
     System.out.println("Calling init with " + appId);
     mMyApp = new IQApp(appId);
     mStoreId = storeId;
+=======
+  public void init(String appId, Promise promise) {
+    System.out.println("Calling init with " + appId);
+    mMyApp = new IQApp(appId);
+>>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
     Context context = this.getCurrentActivity().getWindow().getContext();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
       if (context.isUiContext()) {
@@ -205,9 +210,15 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   }
 
   @ReactMethod
+<<<<<<< HEAD
   public void openStore(Promise promise) {
     try {
       mConnectIQ.openStore(mStoreId);
+=======
+  public void openStore(String storeId, Promise promise) {
+    try {
+      mConnectIQ.openStore(storeId);
+>>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
       promise.resolve(null);
     } catch (Exception e) {
       promise.reject(e);

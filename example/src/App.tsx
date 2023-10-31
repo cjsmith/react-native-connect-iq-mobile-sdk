@@ -86,7 +86,7 @@ export default function App() {
 
   const callGetApplicationInfo = () => {
     setGetApplicationInfoResult('');
-    getApplicationInfo(APP_ID)
+    getApplicationInfo()
       .then((applicationInfo: CIQAppInfo) => {
         setGetApplicationInfoResult(
           `got app info: ${JSON.stringify(applicationInfo)}`
