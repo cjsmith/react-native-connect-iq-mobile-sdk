@@ -376,11 +376,8 @@ PODS:
   - React-jsinspector (0.72.4)
   - React-logger (0.72.4):
     - glog
-  - react-native-connect-iq-mobile-sdk (0.1.0):
-<<<<<<< HEAD
+  - react-native-connect-iq-mobile-sdk (0.1.1):
     - ConnectIQ
-=======
->>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - React-NativeModulesApple (0.72.4):
@@ -567,10 +564,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CocoaAsyncSocket
-<<<<<<< HEAD
     - ConnectIQ
-=======
->>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
     - Flipper
     - Flipper-Boost-iOSX
     - Flipper-DoubleConversion
@@ -671,10 +665,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-<<<<<<< HEAD
   ConnectIQ: 641f6d6edff0ff032311aa89f1d74419a16b3cdb
-=======
->>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5d4a3b7f411219a45a6d952f77d2c0a6c9989da5
   FBReactNativeSpec: 3fc2d478e1c4b08276f9dd9128f80ec6d5d85c1f
@@ -687,11 +678,7 @@ SPEC CHECKSUMS:
   Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
   FlipperKit: 2efad7007d6745a3f95e4034d547be637f89d3f6
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-<<<<<<< HEAD
   glog: 391d90cd90d4e4c823260cc4c2d01db2ccdc3c16
-=======
-  glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
->>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
   hermes-engine: 81191603c4eaa01f5e4ae5737a9efcf64756c7b2
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
@@ -710,11 +697,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: c7f826e40fa9cab5d37cab6130b1af237332b594
   React-jsinspector: aaed4cf551c4a1c98092436518c2d267b13a673f
   React-logger: da1ebe05ae06eb6db4b162202faeafac4b435e77
-<<<<<<< HEAD
-  react-native-connect-iq-mobile-sdk: f71f18f7bad6c2f8a517672ab41754f1dcecce98
-=======
-  react-native-connect-iq-mobile-sdk: d577364efc242b9af047a9912a39c680bb9051eb
->>>>>>> 71a0742da786ace91195358a6b5b1db3ded73cf6
+  react-native-connect-iq-mobile-sdk: dd58c1a384cb899881e8d80228c7afa113c67235
   React-NativeModulesApple: edb5ace14f73f4969df6e7b1f3e41bef0012740f
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
   React-RCTActionSheet: 02904b932b50e680f4e26e7a686b33ebf7ef3c00
@@ -736,6 +719,6 @@ SPEC CHECKSUMS:
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: e51aa4166ffde27d8e16dcbbe79f8f15dcd8e0d7
+PODFILE CHECKSUM: e5b0e71da9d37d538b6c37f60a76296caf97d230
 
 COCOAPODS: 1.12.1

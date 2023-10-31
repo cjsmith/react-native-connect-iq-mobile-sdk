@@ -88,8 +88,8 @@ export function setDevice(deviceId: string): Promise<void> {
   return ConnectIqMobileSdk.setDevice(deviceId);
 }
 
-export function openStore(storeId: string): Promise<void> {
-  return ConnectIqMobileSdk.openStore(storeId);
+export function openStore(): Promise<void> {
+  return ConnectIqMobileSdk.openStore();
 }
 
 export function addMessageRecievedListener(
@@ -118,101 +118,10 @@ export function addDeviceStatusChangedListener(
   );
 }
 
-export function getApplicationInfo(appId: string): Promise<CIQAppInfo> {
-  return ConnectIqMobileSdk.getApplicationInfo(appId);
+export function getApplicationInfo(): Promise<CIQAppInfo> {
+  return ConnectIqMobileSdk.getApplicationInfo();
 }
 
 export function sendMessage(message: string): Promise<void> {
   return ConnectIqMobileSdk.sendMessage(message);
 }
-
-export type CIQDeviceStatusChangedEvent = {
-  deviceId: string;
-  status: CIQDeviceStatus;
-};
-
-export enum CIQDeviceStatus {
-  NOT_PAIRED = 'NOT_PAIRED',
-  NOT_CONNECTED = 'NOT_CONNECTED',
-  CONNECTED = 'CONNECTED',
-  UNKNOWN = 'UNKNOWN',
-}
-
-export enum CIQMessageStatus {
-  SUCCESS = 'SUCCESS',
-  FAILURE_UNKNOWN = 'FAILURE_UNKNOWN',
-  FAILURE_INVALID_FORMAT = 'FAILURE_INVALID_FORMAT',
-  FAILURE_MESSAGE_TOO_LARGE = 'FAILURE_MESSAGE_TOO_LARGE',
-  FAILURE_UNSUPPORTED_TYPE = 'FAILURE_UNSUPPORTED_TYPE',
-  FAILURE_DURING_TRANSFER = 'FAILURE_DURING_TRANSFER',
-  FAILURE_INVALID_DEVICE = 'FAILURE_INVALID_DEVICE',
-  FAILURE_DEVICE_NOT_CONNECTED = 'FAILURE_DEVICE_NOT_CONNECTED',
-}
-
-export enum CIQNativeEvent {
-  MESSAGE_RECEIVED = 'messageReceived',
-  DEVICE_STATUS_CHANGED = 'deviceStatusChanged',
-}
-
-export type CIQMessage = {
-  message: string;
-  status: CIQMessageStatus;
-};
-
-const ConnectIqMobileSdkEventEmitter = new NativeEventEmitter();
-
-export function init(appId: string): Promise<void> {
-  return ConnectIqMobileSdk.init(appId);
-}
-
-export function getConnectedDevices(): Promise<CIQDevice[]> {
-  return ConnectIqMobileSdk.getConnectedDevices();
-}
-
-export function getKnownDevices(): Promise<CIQDevice[]> {
-  return ConnectIqMobileSdk.getKnownDevices();
-}
-
-export function setDevice(deviceId: string): Promise<void> {
-  return ConnectIqMobileSdk.setDevice(deviceId);
-}
-
-export function openStore(storeId: string): Promise<void> {
-  return ConnectIqMobileSdk.openStore(storeId);
-}
-
-export function addMessageRecievedListener(
-  onMessageReceived: (message: CIQMessage) => void
-) {
-  ConnectIqMobileSdkEventEmitter.removeAllListeners(
-    CIQNativeEvent.MESSAGE_RECEIVED
-  );
-  ConnectIqMobileSdkEventEmitter.addListener(
-    CIQNativeEvent.MESSAGE_RECEIVED,
-    onMessageReceived
-  );
-}
-
-export function addDeviceStatusChangedListener(
-  onDeviceStatusChanged: (
-    deviceStatusChangedEvent: CIQDeviceStatusChangedEvent
-  ) => void
-) {
-  ConnectIqMobileSdkEventEmitter.removeAllListeners(
-    CIQNativeEvent.DEVICE_STATUS_CHANGED
-  );
-  ConnectIqMobileSdkEventEmitter.addListener(
-    CIQNativeEvent.DEVICE_STATUS_CHANGED,
-    onDeviceStatusChanged
-  );
-}
-
-export function getApplicationInfo(appId: string): Promise<CIQAppInfo> {
-  return ConnectIqMobileSdk.getApplicationInfo(appId);
-}
-
-export function sendMessage(message: string): Promise<void> {
-  return ConnectIqMobileSdk.sendMessage(message);
-}
-
-j;

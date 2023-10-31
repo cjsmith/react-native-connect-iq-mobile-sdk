@@ -17,6 +17,7 @@ import {
 } from 'react-native-connect-iq-mobile-sdk';
 
 const APP_ID = 'c815f36d-d28a-464f-bc23-12190792a2be';
+const STORE_ID = 'c815f36d-d28a-464f-bc23-12190792a2be';
 const URL_SCHEME = 'ciqsdkexample-12345';
 
 export default function App() {
@@ -46,6 +47,7 @@ export default function App() {
     setInitResult('');
     init({
       appId: APP_ID,
+      storeId: STORE_ID,
       urlScheme: URL_SCHEME,
     })
       .then(() => {

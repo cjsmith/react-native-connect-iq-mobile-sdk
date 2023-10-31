@@ -113,6 +113,7 @@ RCT_EXPORT_METHOD(init:(NSString *) appId
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
+    NSLog(@"init called with appId %@, storeId %@, urlScheme %@", appId, storeId, urlScheme);
     [[ConnectIQ sharedInstance] initializeWithUrlScheme:urlScheme uiOverrideDelegate:nil];
     _urlScheme = urlScheme;
     _appId = [[NSUUID alloc] initWithUUIDString: appId];
@@ -120,6 +121,7 @@ RCT_EXPORT_METHOD(init:(NSString *) appId
         _storeId =  [[NSUUID alloc] initWithUUIDString: storeId];
     }
     _app = [IQApp appWithUUID:_appId storeUuid:_storeId device:_device];
+    NSLog(@"setting app to %@", _app.description);
     _devices = [NSMutableDictionary new];
     resolve(nil);
 }
@@ -198,7 +200,8 @@ RCT_EXPORT_METHOD(setDevice:(NSString *) deviceId
                   reject:(RCTPromiseRejectBlock) reject)
 {
     _device = [_devices objectForKey:[[NSUUID alloc] initWithUUIDString: deviceId]];
-    NSLog(@"device is %@", _device.uuid);
+    NSLog(@"setting device to %@", _device.description);
+    _app = [IQApp appWithUUID:_appId storeUuid:_storeId device:_device];
     [[ConnectIQ sharedInstance] registerForDeviceEvents: _device delegate:self];
     /// @param  app      The app to listen for messages from.
     /// @param  delegate The listener which will receive messages for this app.
@@ -210,7 +213,14 @@ RCT_EXPORT_METHOD(setDevice:(NSString *) deviceId
 RCT_EXPORT_METHOD(getApplicationInfo: (RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    [[ConnectIQ sharedInstance] getAppStatus: _app];
+    NSLog(@"calling getAppStatus with app %@", _app.description);
+    [[ConnectIQ sharedInstance] getAppStatus:_app completion:^(IQAppStatus *appStatus) {
+        NSLog(@"got AppStatus of %@", appStatus.description);
+        resolve(@{
+            @"status": appStatus.isInstalled ? @"INSTALLED" : @"NOT_INSTALLED",
+            @"version": [NSString stringWithFormat:@"%d", appStatus.version],
+        });
+    }];
 }
 
 RCT_EXPORT_METHOD(getKnownDevices: (RCTPromiseResolveBlock) resolve
