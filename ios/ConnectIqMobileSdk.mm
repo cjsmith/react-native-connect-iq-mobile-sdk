@@ -144,6 +144,12 @@ RCT_EXPORT_METHOD(sendMessage:(NSString *) message
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
+    if (_app == nil || _app.device == nil) {
+        NSError * error = [[NSError alloc] initWithDomain:@"com.github" code:200 userInfo:@{@"Error reason": @"No device set.  Please call setDevice"}];
+        reject(@"error",@"setDevice not called", error);
+        return;
+    }
+        
     [[ConnectIQ sharedInstance] sendMessage:message toApp:_app progress:nil completion:^(IQSendMessageResult result) {
         NSString* resultString;
         switch (result) {
@@ -187,6 +193,28 @@ RCT_EXPORT_METHOD(sendMessage:(NSString *) message
         
         resolve(resultString);
     }];
+}
+
+- (void)deviceStatusChanged:(IQDevice *)device status:(IQDeviceStatus)status {
+    NSString* statusString;
+    switch (status) {
+        case IQDeviceStatus_InvalidDevice:
+            statusString = @"INVALID_DEVICE";
+            break;
+        case IQDeviceStatus_BluetoothNotReady:
+            statusString = @"NOT_PAIRED";
+            break;
+        case IQDeviceStatus_NotFound:
+            statusString = @"NOT_FOUND";
+            break;
+        case IQDeviceStatus_NotConnected:
+            statusString = @"NOT_CONNECTED";
+            break;
+        case IQDeviceStatus_Connected:
+            statusString = @"CONNECTED";
+            break;
+    }
+    [self sendEventWithName:@"deviceStatusChanged" body:@{@"deviceId": [device.uuid  UUIDString], @"status": statusString}];
 }
 
 - (void)receivedMessage:(id)message fromApp:(IQApp *)app
