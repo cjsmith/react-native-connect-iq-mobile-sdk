@@ -83,9 +83,9 @@ export function getKnownDevices(): Promise<CIQDevice[]> {
   return ConnectIqMobileSdk.getKnownDevices();
 }
 
-export function setDevice(deviceId: string): Promise<void> {
-  console.log('calling setDevice with ' + deviceId);
-  return ConnectIqMobileSdk.setDevice(deviceId);
+export function setDevice(device: CIQDevice): Promise<void> {
+  console.log('calling setDevice with ' + device.deviceIdentifier);
+  return ConnectIqMobileSdk.setDevice(device);
 }
 
 export function openStore(): Promise<void> {
@@ -122,6 +122,10 @@ export function getApplicationInfo(): Promise<CIQAppInfo> {
   return ConnectIqMobileSdk.getApplicationInfo();
 }
 
-export function sendMessage(message: string): Promise<void> {
-  return ConnectIqMobileSdk.sendMessage(message);
+export function sendMessage(message: string | object): Promise<string> {
+  if (typeof message === 'string') {
+    return ConnectIqMobileSdk.sendMessage(message);
+  } else {
+    return ConnectIqMobileSdk.sendMessageDictionary(message);
+  }
 }

@@ -20,6 +20,15 @@ const APP_ID = 'c815f36d-d28a-464f-bc23-12190792a2be';
 const STORE_ID = 'c815f36d-d28a-464f-bc23-12190792a2be';
 const URL_SCHEME = 'ciqsdkexample-12345';
 
+const isJson = (str: string) => {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+};
+
 export default function App() {
   const [initResult, setInitResult] = useState<string | undefined>();
   const [getConnectedDevicesResult, setGetConnectedDevicesResult] = useState<
@@ -37,7 +46,9 @@ export default function App() {
   >();
   const [openStoreResult, setOpenStoreResult] = useState<string | undefined>();
   const [devices, setDevices] = useState<CIQDevice[]>([]);
-  const [deviceId, setDeviceId] = useState<string>('');
+  const [currentDevice, setCurrentDevice] = useState<CIQDevice | undefined>(
+    undefined
+  );
   const [storeId, setStoreId] = useState<string>('');
   const [message, setMessage] = useState<string>('');
   const [receivedMessage, setReceivedMessage] = useState<string>('');
@@ -101,7 +112,7 @@ export default function App() {
 
   const callOpenStore = () => {
     setOpenStoreResult('');
-    openStore(APP_ID)
+    openStore()
       .then(() => {
         setOpenStoreResult('open store succeeded');
       })
@@ -110,10 +121,10 @@ export default function App() {
       });
   };
 
-  const callSetDevice = (deviceId: string) => {
-    setDeviceId(deviceId);
+  const callSetDevice = (device: CIQDevice) => {
+    setCurrentDevice(device);
     setSetDeviceResult('');
-    setDevice(deviceId)
+    setDevice(device)
       .then(() => {
         setSetDeviceResult(`set device succeeded`);
       })
@@ -124,9 +135,10 @@ export default function App() {
 
   const callSendMessage = () => {
     setSendMessageResult('');
-    sendMessage(message)
-      .then(() => {
-        setSendMessageResult(`send message succeeded`);
+    const messageObj = isJson(message) ? JSON.parse(message) : message;
+    sendMessage(messageObj)
+      .then((status) => {
+        setSendMessageResult(`send message succeeded ${status}`);
         setMessage('');
       })
       .catch((e: any) => {
@@ -140,8 +152,8 @@ export default function App() {
       setReceivedMessage(JSON.stringify(messageEvent));
     });
     addDeviceStatusChangedListener(
-      (deviceStatus: CIQDeviceStatusChangedEvent) => {
-        setDeviceStatus(JSON.stringify(deviceStatus));
+      (changedDeviceStatus: CIQDeviceStatusChangedEvent) => {
+        setDeviceStatus(JSON.stringify(changedDeviceStatus));
       }
     );
   }, []);
@@ -167,14 +179,14 @@ export default function App() {
           key={device.deviceIdentifier}
           title={`Use ${device.friendlyName}(${device.deviceIdentifier})`}
           onPress={() => {
-            callSetDevice(device.deviceIdentifier);
+            callSetDevice(device);
           }}
         />
       ))}
       {setDeviceResult ? <Text>Result: {setDeviceResult}</Text> : null}
       <Button
         title="Call Get Application Info"
-        disabled={!deviceId}
+        disabled={!currentDevice}
         onPress={callGetApplicationInfo}
       />
       {getApplicationInfoResult ? (

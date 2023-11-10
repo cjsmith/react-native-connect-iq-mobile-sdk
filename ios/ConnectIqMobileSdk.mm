@@ -28,7 +28,7 @@ RCT_EXPORT_MODULE()
 {
     NSMutableArray *dictDevices = [NSMutableArray new];
     [[_devices allValues] enumerateObjectsUsingBlock:^(id device, NSUInteger idx, BOOL *stop) {
-        [dictDevices addObject:@{@"deviceIdentifier":[[device uuid] UUIDString], @"friendlyName": [device friendlyName]}];
+        [dictDevices addObject:@{@"deviceIdentifier":[[device uuid] UUIDString], @"friendlyName": [device friendlyName], @"modelName": [device modelName]}];
     }];
     return dictDevices;
 }
@@ -140,16 +140,16 @@ RCT_EXPORT_METHOD(removeListeners:(NSInteger) count
     resolve(nil);
 }
 
-RCT_EXPORT_METHOD(sendMessage:(NSString *) message
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject)
+
+- (void) sendMessageInternal: (id)message
+resolve:(RCTPromiseResolveBlock)resolve
+reject:(RCTPromiseRejectBlock)reject
 {
     if (_app == nil || _app.device == nil) {
         NSError * error = [[NSError alloc] initWithDomain:@"com.github" code:200 userInfo:@{@"Error reason": @"No device set.  Please call setDevice"}];
         reject(@"error",@"setDevice not called", error);
         return;
     }
-        
     [[ConnectIQ sharedInstance] sendMessage:message toApp:_app progress:nil completion:^(IQSendMessageResult result) {
         NSString* resultString;
         switch (result) {
@@ -195,6 +195,20 @@ RCT_EXPORT_METHOD(sendMessage:(NSString *) message
     }];
 }
 
+RCT_EXPORT_METHOD(sendMessageDictionary:(NSDictionary *) dictMessage
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+{
+    [self sendMessageInternal: dictMessage resolve:resolve reject: reject];
+}
+
+RCT_EXPORT_METHOD(sendMessage:(NSString *) message
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+{
+    [self sendMessageInternal: message resolve:resolve reject: reject];
+}
+
 - (void)deviceStatusChanged:(IQDevice *)device status:(IQDeviceStatus)status {
     NSString* statusString;
     switch (status) {
@@ -223,12 +237,12 @@ RCT_EXPORT_METHOD(sendMessage:(NSString *) message
 
 }
 
-RCT_EXPORT_METHOD(setDevice:(NSString *) deviceId
+RCT_EXPORT_METHOD(setDevice:(NSDictionary *) device
                   resolve:(RCTPromiseResolveBlock) resolve
                   reject:(RCTPromiseRejectBlock) reject)
 {
-    _device = [_devices objectForKey:[[NSUUID alloc] initWithUUIDString: deviceId]];
-    NSLog(@"setting device to %@", _device.description);
+    NSLog(@"setting device to %@", device.description);
+    _device = [IQDevice deviceWithId: [[NSUUID alloc] initWithUUIDString:[device objectForKey:@"deviceIdentifier"]] modelName: [device objectForKey:@"modelName"] friendlyName: [device objectForKey:@"friendlyName"]];
     _app = [IQApp appWithUUID:_appId storeUuid:_storeId device:_device];
     [[ConnectIQ sharedInstance] registerForDeviceEvents: _device delegate:self];
     /// @param  app      The app to listen for messages from.

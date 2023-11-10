@@ -9,6 +9,7 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableNativeArray;
@@ -112,17 +113,11 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   }
 
   @ReactMethod
-  public void setDevice(String deviceId, Promise promise) {
+  public void setDevice(ReadableMap device, Promise promise) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
       try {
-        List<IQDevice> knownDevices = mConnectIQ.getKnownDevices();
-        Optional<IQDevice> optionalDevice = knownDevices.stream().filter(device -> device.getDeviceIdentifier() == Long.valueOf(deviceId)).findFirst();
-        if (optionalDevice.isPresent()) {
-          mDevice = optionalDevice.get();
-          mConnectIQ.registerForDeviceEvents(mDevice, this);
-        } else {
-          promise.reject(new Exception("No matching device with device id" + deviceId));
-        }
+        IQDevice mDevice = new IQDevice(device.getInt("deviceIdentifier"), device.getString("friendlyName"));
+        mConnectIQ.registerForDeviceEvents(mDevice, this);
         promise.resolve(null);
       } catch (Exception e) {
         promise.reject(e);
@@ -184,7 +179,7 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
 
         @Override
         public void onApplicationNotInstalled(String applicationId) {
-          promise.reject(new Exception("Connect IQ application with appId " + appId + " not installed on device with deviceId " + mDevice.getDeviceIdentifier()));
+          promise.reject(new Exception("Connect IQ application with appId " + applicationId + " not installed on device with deviceId " + mDevice.getDeviceIdentifier()));
         }
       });
     } catch (Exception e) {
