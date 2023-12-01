@@ -133,6 +133,12 @@ export default function App() {
       });
   };
 
+  const populateJsonMessage = () => {
+    setMessage(
+      // eslint-disable-next-line prettier/prettier
+      JSON.stringify({ string_field: "hello world", number_field: 1234 }),
+    );
+  };
   const callSendMessage = () => {
     setSendMessageResult('');
     const messageObj = isJson(message) ? JSON.parse(message) : message;
@@ -198,6 +204,7 @@ export default function App() {
         value={message}
         onChangeText={setMessage}
       />
+      <Button title="Use JSON message" onPress={populateJsonMessage} />
       <Button title="Send Message" onPress={callSendMessage} />
       {sendMessageResult ? <Text>Result: {sendMessageResult}</Text> : null}
       <Text>Message Received:</Text>

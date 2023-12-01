@@ -234,7 +234,6 @@ RCT_EXPORT_METHOD(sendMessage:(NSString *) message
 - (void)receivedMessage:(id)message fromApp:(IQApp *)app
 {
     [self sendEventWithName:@"messageReceived" body:@{@"message": message}];
-
 }
 
 RCT_EXPORT_METHOD(setDevice:(NSDictionary *) device

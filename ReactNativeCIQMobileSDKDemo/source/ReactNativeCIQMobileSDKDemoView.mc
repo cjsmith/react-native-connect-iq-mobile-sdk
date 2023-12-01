@@ -29,7 +29,8 @@ class ReactNativeCIQMobileSDKDemoView extends WatchUi.View {
     function phoneMessageCallback(msg as Communications.PhoneAppMessage) {
         System.println("Received message " + msg.data);
         var message = "received " + msg.data + "; hello from Connect IQ";
-        Communications.transmit(message, null, new ConnectionListenerImpl());
+        Communications.transmit(msg.data, null, new ConnectionListener());
+        Communications.transmit(message, null, new ConnectionListener());
     }
 
     function initialize() {

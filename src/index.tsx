@@ -58,7 +58,7 @@ export enum CIQNativeEvent {
 }
 
 export type CIQMessage = {
-  message: string;
+  message: any;
   status: CIQMessageStatus;
 };
 
