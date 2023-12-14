@@ -8,7 +8,6 @@ NSString * const kDevicesFileName = @"devices";
 @property (nonatomic, readwrite) NSMutableDictionary *devices;
 @property (nonatomic, readwrite) IQDevice* device;
 @property (nonatomic, readwrite) RCTPromiseResolveBlock connectedDevicesPromise;
-@property (nonatomic, readwrite) IQApp* app;
 @property (nonatomic, readwrite) NSString* urlScheme;
 @property (nonatomic, readwrite) NSUUID* storeId;
 @property (nonatomic, readwrite) NSUUID* appId;
@@ -107,21 +106,18 @@ RCT_EXPORT_MODULE()
 
 // Example method
 // See // https://reactnative.dev/docs/native-modules-ios
-RCT_EXPORT_METHOD(init:(NSString *) appId
-                  storeId: (NSString*) storeId
+RCT_EXPORT_METHOD(init: (NSString*) storeId
                   urlScheme: (NSString *)urlScheme
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    NSLog(@"init called with appId %@, storeId %@, urlScheme %@", appId, storeId, urlScheme);
+    NSLog(@"init called with storeId %@, urlScheme %@", storeId, urlScheme);
     [[ConnectIQ sharedInstance] initializeWithUrlScheme:urlScheme uiOverrideDelegate:nil];
     _urlScheme = urlScheme;
-    _appId = [[NSUUID alloc] initWithUUIDString: appId];
     if (storeId != nil) {
         _storeId =  [[NSUUID alloc] initWithUUIDString: storeId];
     }
-    _app = [IQApp appWithUUID:_appId storeUuid:_storeId device:_device];
-    NSLog(@"setting app to %@", _app.description);
+//    NSLog(@"setting app to %@", _app.description);
     _devices = [NSMutableDictionary new];
     resolve(nil);
 }
@@ -142,15 +138,19 @@ RCT_EXPORT_METHOD(removeListeners:(NSInteger) count
 
 
 - (void) sendMessageInternal: (id)message
+appId: (NSString *) appId
 resolve:(RCTPromiseResolveBlock)resolve
 reject:(RCTPromiseRejectBlock)reject
 {
-    if (_app == nil || _app.device == nil) {
+    if (appId == nil) {
         NSError * error = [[NSError alloc] initWithDomain:@"com.github" code:200 userInfo:@{@"Error reason": @"No device set.  Please call setDevice"}];
         reject(@"error",@"setDevice not called", error);
         return;
     }
-    [[ConnectIQ sharedInstance] sendMessage:message toApp:_app progress:nil completion:^(IQSendMessageResult result) {
+    NSUUID* appUuid = [[NSUUID alloc] initWithUUIDString: appId];
+    IQApp* app = [IQApp appWithUUID:appUuid storeUuid:_storeId device:_device];
+    NSLog(@"sending message to app %@", app.description);
+    [[ConnectIQ sharedInstance] sendMessage:message toApp:app progress:nil completion:^(IQSendMessageResult result) {
         NSString* resultString;
         switch (result) {
             case IQSendMessageResult_Success:
@@ -196,17 +196,19 @@ reject:(RCTPromiseRejectBlock)reject
 }
 
 RCT_EXPORT_METHOD(sendMessageDictionary:(NSDictionary *) dictMessage
+                  appId: (NSString *) appId
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    [self sendMessageInternal: dictMessage resolve:resolve reject: reject];
+    [self sendMessageInternal: dictMessage appId:appId resolve:resolve reject: reject];
 }
 
 RCT_EXPORT_METHOD(sendMessage:(NSString *) message
+                  appId: (NSString *) appId
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    [self sendMessageInternal: message resolve:resolve reject: reject];
+    [self sendMessageInternal: message appId:appId resolve:resolve reject: reject];
 }
 
 - (void)deviceStatusChanged:(IQDevice *)device status:(IQDeviceStatus)status {
@@ -233,7 +235,8 @@ RCT_EXPORT_METHOD(sendMessage:(NSString *) message
 
 - (void)receivedMessage:(id)message fromApp:(IQApp *)app
 {
-    [self sendEventWithName:@"messageReceived" body:@{@"message": message}];
+    NSString *appId = [app.uuid UUIDString];
+    [self sendEventWithName:@"messageReceived" body:@{@"message": message, @"appId": appId}];
 }
 
 RCT_EXPORT_METHOD(setDevice:(NSDictionary *) device
@@ -242,20 +245,32 @@ RCT_EXPORT_METHOD(setDevice:(NSDictionary *) device
 {
     NSLog(@"setting device to %@", device.description);
     _device = [IQDevice deviceWithId: [[NSUUID alloc] initWithUUIDString:[device objectForKey:@"deviceIdentifier"]] modelName: [device objectForKey:@"modelName"] friendlyName: [device objectForKey:@"friendlyName"]];
-    _app = [IQApp appWithUUID:_appId storeUuid:_storeId device:_device];
     [[ConnectIQ sharedInstance] registerForDeviceEvents: _device delegate:self];
     /// @param  app      The app to listen for messages from.
     /// @param  delegate The listener which will receive messages for this app.
-    [[ConnectIQ sharedInstance] registerForAppMessages:_app delegate:self];
 
     resolve(nil);
 }
 
-RCT_EXPORT_METHOD(getApplicationInfo: (RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(registerForAppMessages: (NSString*) appId
+                  resolve:(RCTPromiseResolveBlock) resolve
+                  reject:(RCTPromiseRejectBlock) reject)
+{
+    NSUUID* appUuid = [[NSUUID alloc] initWithUUIDString: appId];
+    IQApp* app = [IQApp appWithUUID:appUuid storeUuid:_storeId device:_device];
+    [[ConnectIQ sharedInstance] registerForAppMessages:app delegate:self];
+    resolve(nil);
+}
+
+
+RCT_EXPORT_METHOD(getApplicationInfo:  (NSString*) appId           resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    NSLog(@"calling getAppStatus with app %@", _app.description);
-    [[ConnectIQ sharedInstance] getAppStatus:_app completion:^(IQAppStatus *appStatus) {
+    NSUUID* appUuid = [[NSUUID alloc] initWithUUIDString: appId];
+    IQApp* app = [IQApp appWithUUID:appUuid storeUuid:_storeId device:_device];
+
+    NSLog(@"calling getAppStatus with app %@", app.description);
+    [[ConnectIQ sharedInstance] getAppStatus:app completion:^(IQAppStatus *appStatus) {
         NSLog(@"got AppStatus of %@", appStatus.description);
         resolve(@{
             @"status": appStatus.isInstalled ? @"INSTALLED" : @"NOT_INSTALLED",
@@ -279,10 +294,13 @@ RCT_EXPORT_METHOD(getConnectedDevices: (RCTPromiseResolveBlock)resolve
     });
 }
 
-RCT_EXPORT_METHOD(openStore: (RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(openStore: (NSString*) appId           resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    [[ConnectIQ sharedInstance]  showConnectIQStoreForApp:_app];
+    NSUUID* appUuid = [[NSUUID alloc] initWithUUIDString: appId];
+    IQApp* app = [IQApp appWithUUID:appUuid storeUuid:_storeId device:_device];
+
+    [[ConnectIQ sharedInstance]  showConnectIQStoreForApp:app];
     resolve(nil);
 }
 @end

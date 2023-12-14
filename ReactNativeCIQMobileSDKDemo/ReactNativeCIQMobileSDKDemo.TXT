@@ -1,4 +1,5 @@
-
-
-
-Received message Hhhhh
+{
+"primaryButton": "Primary",
+"prompt": "Prompt",
+"secondaryButton": "Secondary"
+}

@@ -14,6 +14,7 @@ import {
   addDeviceStatusChangedListener,
   type CIQDeviceStatusChangedEvent,
   openStore,
+  registerForAppMessages,
 } from 'react-native-connect-iq-mobile-sdk';
 
 const APP_ID = 'c815f36d-d28a-464f-bc23-12190792a2be';
@@ -44,6 +45,8 @@ export default function App() {
   const [getApplicationInfoResult, setGetApplicationInfoResult] = useState<
     string | undefined
   >();
+  const [registerForAppMessagesResult, setRegisterForAppMessagesResult] =
+    useState<string | undefined>();
   const [openStoreResult, setOpenStoreResult] = useState<string | undefined>();
   const [devices, setDevices] = useState<CIQDevice[]>([]);
   const [currentDevice, setCurrentDevice] = useState<CIQDevice | undefined>(
@@ -57,7 +60,6 @@ export default function App() {
   const callInit = () => {
     setInitResult('');
     init({
-      appId: APP_ID,
       storeId: STORE_ID,
       urlScheme: URL_SCHEME,
     })
@@ -99,7 +101,7 @@ export default function App() {
 
   const callGetApplicationInfo = () => {
     setGetApplicationInfoResult('');
-    getApplicationInfo()
+    getApplicationInfo(APP_ID)
       .then((applicationInfo: CIQAppInfo) => {
         setGetApplicationInfoResult(
           `got app info: ${JSON.stringify(applicationInfo)}`
@@ -112,12 +114,23 @@ export default function App() {
 
   const callOpenStore = () => {
     setOpenStoreResult('');
-    openStore()
+    openStore(APP_ID)
       .then(() => {
         setOpenStoreResult('open store succeeded');
       })
       .catch((e: any) => {
         setOpenStoreResult(`failed: ${e}`);
+      });
+  };
+
+  const callRegisterForAppMessages = () => {
+    setRegisterForAppMessagesResult('');
+    registerForAppMessages(APP_ID)
+      .then(() => {
+        setRegisterForAppMessagesResult('register for app messages succeeded');
+      })
+      .catch((e: any) => {
+        setRegisterForAppMessagesResult(`failed: ${e}`);
       });
   };
 
@@ -142,7 +155,7 @@ export default function App() {
   const callSendMessage = () => {
     setSendMessageResult('');
     const messageObj = isJson(message) ? JSON.parse(message) : message;
-    sendMessage(messageObj)
+    sendMessage(messageObj, APP_ID)
       .then((status) => {
         setSendMessageResult(`send message succeeded ${status}`);
         setMessage('');
@@ -197,6 +210,14 @@ export default function App() {
       />
       {getApplicationInfoResult ? (
         <Text>Result: {getApplicationInfoResult}</Text>
+      ) : null}
+      <Button
+        title="Register Message Events"
+        disabled={!currentDevice}
+        onPress={callRegisterForAppMessages}
+      />
+      {registerForAppMessagesResult ? (
+        <Text>Result: {registerForAppMessagesResult}</Text>
       ) : null}
       <Text>Message</Text>
       <TextInput

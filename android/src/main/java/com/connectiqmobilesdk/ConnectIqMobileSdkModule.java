@@ -50,10 +50,7 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   private boolean mSdkReady;
   private ConnectIQ mConnectIQ;
   private IQDevice mDevice;
-  private IQApp mMyApp;
   private String mStoreId;
-
-  private String mAppId;
   private Promise messageStatusPromise;
 
   public ConnectIqMobileSdkModule(ReactApplicationContext reactContext) {
@@ -87,12 +84,9 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
-  public void init(String appId, String storeId, String urlScheme/*only used on iOS*/, Promise promise) {
-    System.out.println("Calling init with " + appId);
-    mAppId = appId;
-    mMyApp = new IQApp(appId);
+  public void init(String storeId, String urlScheme/*only used on iOS*/, Promise promise) {
+    System.out.println("Calling init with " + storeId);
     mStoreId = storeId;
-
 
     Context context = this.getCurrentActivity().getWindow().getContext();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -125,17 +119,23 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   }
 
   @ReactMethod
+  public void registerForAppMessages(String appId, Promise promise) {
+    try {
+      mConnectIQ.registerForAppEvents(mDevice, new IQApp(appId), this);
+      promise.resolve(null);
+    } catch (Exception e) {
+      promise.reject(new Exception("failed to register for app events " + e.getMessage()));
+      return;
+    }
+  }
+
+  @ReactMethod
   public void setDevice(ReadableMap device, Promise promise) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
       try {
         mDevice = new IQDevice(Long.parseLong(device.getString("deviceIdentifier")), device.getString("friendlyName"));
         mConnectIQ.registerForDeviceEvents(mDevice, this);
-        try {
-          mConnectIQ.registerForAppEvents(mDevice, mMyApp, this);
-        } catch (Exception e) {
-          promise.reject(new Exception("no app to get app info from"));
-          return;
-        }
+
         promise.resolve(null);
       } catch (Exception e) {
         promise.reject(e);
@@ -170,10 +170,10 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   }
 
   @ReactMethod
-  public void getApplicationInfo(Promise promise) {
+  public void getApplicationInfo(String appId, Promise promise) {
 
     try {
-      mConnectIQ.getApplicationInfo(mAppId, mDevice, new IQApplicationInfoListener() {
+      mConnectIQ.getApplicationInfo(appId, mDevice, new IQApplicationInfoListener() {
         @Override
         public void onApplicationInfoReceived( IQApp app ) {
           if (app != null) {
@@ -212,39 +212,44 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
   }
 
   @ReactMethod
-  public void openStore(Promise promise) {
+  public void openStore(String appId, Promise promise) {
     try {
-      mConnectIQ.openStore(mStoreId);
+      mConnectIQ.openStore(appId);
       promise.resolve(null);
     } catch (Exception e) {
       promise.reject(e);
     }
   }
 
-  private void sendMessageInternal(Object message, Promise promise) {
+  private void sendMessageInternal(String appId, Object message, Promise promise) {
+
     try {
       if (mDevice == null) {
         promise.reject(new Exception("No device connected"));
-      } else if (mMyApp == null){
+      } else if (appId == null) {
         promise.reject(new Exception("No app set"));
       } else {
-        mConnectIQ.sendMessage(mDevice, mMyApp, message, this);
-        messageStatusPromise = promise;
+        mConnectIQ.sendMessage(mDevice, new IQApp(appId), message, new IQSendMessageListener() {
+          @Override
+          public void onMessageStatus(IQDevice iqDevice, IQApp iqApp, IQMessageStatus iqMessageStatus) {
+            promise.resolve(iqMessageStatus.name());
+          }
+        });
       }
     } catch (Exception e) {
       promise.reject(e);
     }
   }
 
-  @ReactMethod
-  public void sendMessage(String message, Promise promise) {
-      sendMessageInternal(message, promise);
+    @ReactMethod
+  public void sendMessage( String message, String appId, Promise promise) {
+      sendMessageInternal(appId, message, promise);
   }
 
   @ReactMethod
-  public void sendMessageDictionary(ReadableMap message, Promise promise) {
+  public void sendMessageDictionary(ReadableMap message, String appId, Promise promise) {
       Map<String, Object> javaMap = message.toHashMap();
-      sendMessageInternal(javaMap, promise);
+      sendMessageInternal(appId, javaMap, promise);
   }
 
   public ReadableArray convertListToReadableArray(List<Object> list) {
@@ -308,6 +313,7 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
       try {
         messageReceivedEvent.putString("status", iqMessageStatus.name());
+        messageReceivedEvent.putString("appId", iqApp.getApplicationId());
         if(list.size() > 1) {
           messageReceivedEvent.putArray("message", convertListToReadableArray(list));
         } else if (list.size() == 0){

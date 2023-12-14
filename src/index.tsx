@@ -60,6 +60,7 @@ export enum CIQNativeEvent {
 export type CIQMessage = {
   message: any;
   status: CIQMessageStatus;
+  appId: string;
 };
 
 const ConnectIqMobileSdkEventEmitter = new NativeEventEmitter(
@@ -67,12 +68,11 @@ const ConnectIqMobileSdkEventEmitter = new NativeEventEmitter(
 );
 
 export function init(options: {
-  appId: string;
   urlScheme: string;
   storeId?: string;
 }): Promise<void> {
-  const { appId, urlScheme, storeId } = options;
-  return ConnectIqMobileSdk.init(appId, storeId, urlScheme);
+  const { urlScheme, storeId } = options;
+  return ConnectIqMobileSdk.init(storeId, urlScheme);
 }
 
 export function getConnectedDevices(): Promise<CIQDevice[]> {
@@ -88,8 +88,8 @@ export function setDevice(device: CIQDevice): Promise<void> {
   return ConnectIqMobileSdk.setDevice(device);
 }
 
-export function openStore(): Promise<void> {
-  return ConnectIqMobileSdk.openStore();
+export function openStore(appId: string): Promise<void> {
+  return ConnectIqMobileSdk.openStore(appId);
 }
 
 export function addMessageRecievedListener(
@@ -118,14 +118,21 @@ export function addDeviceStatusChangedListener(
   );
 }
 
-export function getApplicationInfo(): Promise<CIQAppInfo> {
-  return ConnectIqMobileSdk.getApplicationInfo();
+export function getApplicationInfo(appId: string): Promise<CIQAppInfo> {
+  return ConnectIqMobileSdk.getApplicationInfo(appId);
 }
 
-export function sendMessage(message: string | object): Promise<string> {
+export function registerForAppMessages(appId: string): Promise<void> {
+  return ConnectIqMobileSdk.registerForAppMessages(appId);
+}
+
+export function sendMessage(
+  message: string | object,
+  appId: string
+): Promise<string> {
   if (typeof message === 'string') {
-    return ConnectIqMobileSdk.sendMessage(message);
+    return ConnectIqMobileSdk.sendMessage(message, appId);
   } else {
-    return ConnectIqMobileSdk.sendMessageDictionary(message);
+    return ConnectIqMobileSdk.sendMessageDictionary(message, appId);
   }
 }
