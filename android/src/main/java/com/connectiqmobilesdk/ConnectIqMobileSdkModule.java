@@ -4,10 +4,9 @@ import android.content.Context;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.JavaOnlyArray;
-import com.facebook.react.bridge.JavaOnlyMap;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -20,6 +19,7 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
 
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.garmin.android.connectiq.ConnectIQ;
 import com.garmin.android.connectiq.ConnectIQ.ConnectIQListener;
 import com.garmin.android.connectiq.ConnectIQ.IQApplicationEventListener;
@@ -32,15 +32,10 @@ import com.garmin.android.connectiq.ConnectIQ.IQSendMessageListener;
 import com.garmin.android.connectiq.IQApp;
 import com.garmin.android.connectiq.IQDevice;
 import com.garmin.android.connectiq.IQDevice.IQDeviceStatus;
-import com.garmin.android.connectiq.exception.InvalidStateException;
-import com.garmin.android.connectiq.exception.ServiceUnavailableException;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @ReactModule(name = ConnectIqMobileSdkModule.NAME)
 public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule implements IQDeviceEventListener, IQApplicationEventListener, IQSendMessageListener {
@@ -306,6 +301,14 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
 
     return writableMap;
   }
+
+  private void sendEvent(String eventName,
+                         @Nullable WritableMap params) {
+    getReactApplicationContext()
+        .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+        .emit(eventName, params);
+  }
+
   public void onMessageReceived(IQDevice iqDevice, IQApp iqApp, List<Object> list, IQMessageStatus iqMessageStatus) {
 
     WritableNativeMap messageReceivedEvent = new WritableNativeMap();
@@ -330,7 +333,7 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
         e.printStackTrace();
       }
     }
-    this.getReactApplicationContext().emitDeviceEvent("messageReceived", messageReceivedEvent);
+    sendEvent("messageReceived", messageReceivedEvent);
   }
 
   @Override
@@ -340,7 +343,7 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
     deviceStatusEvent.putString("deviceId", String.valueOf(iqDevice.getDeviceIdentifier()));
     deviceStatusEvent.putString("status", iqDeviceStatus.name());
 
-    this.getReactApplicationContext().emitDeviceEvent("deviceStatusChanged", deviceStatusEvent);
+    sendEvent("deviceStatusChanged", deviceStatusEvent);
   }
 
   @Override
