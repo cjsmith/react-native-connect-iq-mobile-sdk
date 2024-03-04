@@ -10,13 +10,7 @@ npm install react-native-connect-iq-mobile-sdk
 
 ## Usage
 
-```js
-import { multiply } from 'react-native-connect-iq-mobile-sdk';
-
-// ...
-
-const result = await multiply(3, 7);
-```
+See the example app for usage of all API calls.
 
 ## Contributing
 

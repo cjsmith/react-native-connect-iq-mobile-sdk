@@ -42,7 +42,11 @@ RCT_EXPORT_MODULE()
             
             for (IQDevice *device in devices) {
                 NSLog(@"Received device: [%@, %@, %@]", device.uuid, device.modelName, device.friendlyName);
-                _devices[device.uuid] = device;
+                if (device.uuid != nil && device !=nil) {
+                    _devices[device.uuid] = device;
+                } else {
+                    NSLog(@"Device id or device was nil");
+                }
             }
             
             if (_connectedDevicesPromise != nil) {
@@ -143,7 +147,12 @@ resolve:(RCTPromiseResolveBlock)resolve
 reject:(RCTPromiseRejectBlock)reject
 {
     if (appId == nil) {
-        NSError * error = [[NSError alloc] initWithDomain:@"com.github" code:200 userInfo:@{@"Error reason": @"No device set.  Please call setDevice"}];
+        NSError * error = [[NSError alloc] initWithDomain:@"com.github" code:200 userInfo:@{@"Error reason": @"No app provided.  Please provide an appId"}];
+        reject(@"error",@"appId is null", error);
+        return;
+    }
+    if (_device == nil) {
+        NSError * error = [[NSError alloc] initWithDomain:@"com.github" code:201 userInfo:@{@"Error reason": @"No device set.  Please call setDevice"}];
         reject(@"error",@"setDevice not called", error);
         return;
     }
