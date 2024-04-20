@@ -10,13 +10,32 @@ npm install react-native-connect-iq-mobile-sdk
 
 ## Usage
 
-```js
-import { multiply } from 'react-native-connect-iq-mobile-sdk';
+Please see the example project for usage.  It provides Android and iOS examples of all functionality in the SDK.   
 
-// ...
+Also see the Garmin docs for background on the functionality.
+# iOS
+https://developer.garmin.com/connect-iq/core-topics/mobile-sdk-for-ios/
 
-const result = await multiply(3, 7);
+Note the XCode project setup required, which is also required for using this in react native. Please see the iOS example.
+
+In particular, you need to handle the openURL method in your AppDelegate 
+
+```objective-c
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSString* sourceApp = options[UIApplicationOpenURLOptionsSourceApplicationKey];
+    NSLog(@"Received URL from '%@': %@", sourceApp, url);
+
+   RCTBridge *bridge = [RCTBridge currentBridge];
+
+   ConnectIqMobileSdk * connectIqMobileSdk = [bridge moduleForName:@"ConnectIqMobileSdk"];
+
+   return [connectIqMobileSdk handleOpenURL:url sourceApplication:sourceApp];
+}
 ```
+
+
+# Android
+https://developer.garmin.com/connect-iq/core-topics/mobile-sdk-for-android/
 
 ## Contributing
 
