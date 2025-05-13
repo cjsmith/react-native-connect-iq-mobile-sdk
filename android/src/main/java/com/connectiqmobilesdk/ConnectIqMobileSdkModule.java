@@ -130,7 +130,8 @@ public class ConnectIqMobileSdkModule extends ReactContextBaseJavaModule impleme
       try {
         mDevice = new IQDevice(Long.parseLong(device.getString("deviceIdentifier")), device.getString("friendlyName"));
         mConnectIQ.registerForDeviceEvents(mDevice, this);
-
+        IQDeviceStatus deviceStatus = mConnectIQ.getDeviceStatus(mDevice);
+        this.onDeviceStatusChanged(mDevice, deviceStatus);
         promise.resolve(null);
       } catch (Exception e) {
         promise.reject(e);

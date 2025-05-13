@@ -255,8 +255,8 @@ RCT_EXPORT_METHOD(setDevice:(NSDictionary *) device
     NSLog(@"setting device to %@", device.description);
     _device = [IQDevice deviceWithId: [[NSUUID alloc] initWithUUIDString:[device objectForKey:@"deviceIdentifier"]] modelName: [device objectForKey:@"modelName"] friendlyName: [device objectForKey:@"friendlyName"]];
     [[ConnectIQ sharedInstance] registerForDeviceEvents: _device delegate:self];
-    /// @param  app      The app to listen for messages from.
-    /// @param  delegate The listener which will receive messages for this app.
+    IQDeviceStatus deviceStatus = [[ConnectIQ sharedInstance] getDeviceStatus: _device];
+    [self deviceStatusChanged: _device status: deviceStatus];
 
     resolve(nil);
 }
